@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+  font-family: "Montserrat", sans-serif;
+}
+.bgmenu-dashboard,.bgmenu-product-mng,.bgmenu-order-mng,.bgmenu-user-mng,
+.bgmenu-cs,.bgmenu-settings,.bgmenu-logout{
+  padding-left: 30px;
+  margin: 0px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.bgmenu-dashboard:hover,.bgmenu-product-mng:hover,.bgmenu-order-mng:hover,.bgmenu-user-mng:hover,
+.bgmenu-cs:hover,.bgmenu-settings:hover,.bgmenu-logout:hover,
+.bgmenu-dashboard.active,.bgmenu-product-mng.active,.bgmenu-order-mng.active,.bgmenu-user-mng.active,
+.bgmenu-cs.active,.bgmenu-settings.active,.bgmenu-logout.active
+{
+  background-color: #5e35f2;
+  color: white;
+  cursor: pointer;
+}
+
+.bgmenu-dashboard:hover img,.bgmenu-product-mng:hover img,.bgmenu-order-mng:hover img,.bgmenu-user-mng:hover img,
+.bgmenu-cs:hover img,.bgmenu-settings:hover img,.bgmenu-logout:hover img,
+.bgmenu-dashboard.active img,.bgmenu-product-mng.active img,.bgmenu-order-mng.active img,.bgmenu-user-mng.active img,
+.bgmenu-cs.active img,.bgmenu-settings.active img,.bgmenu-logout.active img{
+  filter: invert(100%);
+}
+.bgmenu-top-items{
+  margin-top: 50px;
+}
+
+.bgmenu-dashboard.active{
+  background-color: #5e35f2;
+}
+img{
+  height: 20px;
+  width: 20px;
+  opacity: 0.5;
+  margin-right: 10px;
+}
+.burger-main{
+  border-right: 0.5px solid rgb(228, 226, 226);
+  width: 30vh;
+  height: 85vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+

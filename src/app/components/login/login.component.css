@@ -62,7 +62,7 @@
   background-color: #9b72f2;
 }
 .login-submit {
-  margin: 20px 0px 0px 10px;
+  margin: 20px 0px;
 }
 
 .login-register {
@@ -86,4 +86,5 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  margin: 20px;
 }
