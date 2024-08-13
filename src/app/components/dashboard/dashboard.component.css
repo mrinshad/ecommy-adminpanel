@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  margin : 0;
+  padding: 0;
+}
+
+.section-name{
+  margin: 20px 0 40px 20px;
+}
+
+
+section{
+  padding: 10px;
+  width: 100%;
+  /* background-color: yellowgreen; */
+}
+
+.overview-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150vh;
+  height: 20%  ;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+  margin: auto;
+}
+
+.user-num
+{
+  /* background-color: aqua; */
+  width: 30vh;
+  margin-left: 20px;
+}
+
+.order-num{
+  /* background-color: violet; */
+  width: 30vh;
+}
+
+.revenue-amnt{
+  /* background-color: blueviolet; */
+  width: 30vh;
+  margin-right: 20px;
+}
+
+.user-num,.revenue-amnt,.order-num
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.overview-child-head
+{
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.overview-child-value{
+  font-size: 40px;
+}
+

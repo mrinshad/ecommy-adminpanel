@@ -48,6 +48,9 @@ nav{
 .nav-profile img{
   max-width: 40px;
   max-height: 40px;
-  margin: 20px;
+  margin: 30px;
 }
 
+.nav-profile:hover img{
+  cursor: pointer;
+}

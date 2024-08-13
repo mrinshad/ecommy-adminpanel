@@ -1,0 +1,5 @@
+.display-as-coloumn
+{
+  display: flex;
+  flex-direction: row ;
+}
