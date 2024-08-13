@@ -1,27 +1,41 @@
 <div class="burger-main">
   <div class="bgmenu-top-items">
-    <div class="bgmenu-dashboard" routerLink="/Dashboard">
-      <img src="../../../assets/icons/dashboard.png" alt="" ><span><p>Dashboard</p></span>
+    <div class="bgmenu-dashboard" [ngClass]="{ 'active': router.url === '/dashboard' }" routerLink="/dashboard">
+      <img src="../../../assets/icons/dashboard.png" alt=""><span>
+        <p>Dashboard</p>
+      </span>
     </div>
-    <div class="bgmenu-product-mng" routerLink="/product-mng">
-      <img src="../../../assets/icons/product.png" alt="" ><span><p>Product Management</p></span>
+    <div class="bgmenu-product-mng" [ngClass]="{ 'active': router.url === '/product-mng' }" routerLink="/product-mng">
+      <img src="../../../assets/icons/product.png" alt=""><span>
+        <p>Product Management</p>
+      </span>
     </div>
-    <div class="bgmenu-order-mng" routerLink="/order-mng">
-      <img src="../../../assets/icons/order.png" alt="" ><span><p>Order Management</p></span>
+    <div class="bgmenu-order-mng" [ngClass]="{ 'active': router.url === '/order-mng' }"  routerLink="/order-mng">
+      <img src="../../../assets/icons/order.png" alt=""><span>
+        <p>Order Management</p>
+      </span>
     </div>
-    <div class="bgmenu-user-mng" routerLink="/user-mng">
-      <img src="../../../assets/icons/user.png" alt="" ><span><p>User Management</p></span>
+    <div class="bgmenu-user-mng" [ngClass]="{ 'active': router.url === '/user-mng' }"  routerLink="/user-mng">
+      <img src="../../../assets/icons/user.png" alt=""><span>
+        <p>User Management</p>
+      </span>
     </div>
   </div>
   <div class="bgmenu-bottom-items">
-    <div class="bgmenu-cs" routerLink="/cust-sup">
-      <img src="../../../assets/icons/support.png" alt="" ><span><p>Customer Support</p></span>
+    <div class="bgmenu-cs" [ngClass]="{ 'active': router.url === '/cust-sup' }"  routerLink="/cust-sup">
+      <img src="../../../assets/icons/support.png" alt=""><span>
+        <p>Customer Support</p>
+      </span>
     </div>
-    <div class="bgmenu-settings" routerLink="/settings">
-      <img src="../../../assets/icons/setting.png" alt="" ><span><p>Settings</p></span>
+    <div class="bgmenu-settings" [ngClass]="{ 'active': router.url === '/settings' }"  routerLink="/settings">
+      <img src="../../../assets/icons/setting.png" alt=""><span>
+        <p>Settings</p>
+      </span>
     </div>
-    <div class="bgmenu-logout" routerLink="/logout">
-      <img src="../../../assets/icons/logout.png" alt="" ><span><p>Logout</p></span>
+    <div class="bgmenu-logout" [ngClass]="{ 'active': router.url === '/logout' }"  routerLink="/logout">
+      <img src="../../../assets/icons/logout.png" alt=""><span>
+        <p>Logout</p>
+      </span>
     </div>
   </div>
 

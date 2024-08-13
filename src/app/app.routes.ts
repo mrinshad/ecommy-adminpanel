@@ -10,40 +10,47 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 
 export const routes: Routes = [
   {
-    'path' : '',
+    path: '',
     component: MainLayoutComponent,
     children: [
       {
-        'path' : 'Dashboard',
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path : 'dashboard',
         component: DashboardComponent
       },
       {
-        'path' : 'product-mng',
+        path : 'product-mng',
         component: ProductMngComponent
       },
       {
-        'path' : 'order-mng',
+        path : 'order-mng',
         component: OrderMngComponent
       },
       {
-        'path' : 'user-mng',
+        path : 'user-mng',
         component: UserMngComponent
       },
       {
-        'path' : 'cust-sup',
+        path : 'cust-sup',
         component: CustomerSprtComponent
       },
       {
-        'path' : 'settings',
+        path : 'settings',
         component: SettingsComponent
       },
+
+      {
+        path : 'logout',
+        component: DashboardComponent
+      }
     ]
   },
   {
-    'path': 'login',
+    path: 'login',
     component: LoginComponent
-  },
-
-
-
+  }
 ];
