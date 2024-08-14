@@ -7,6 +7,7 @@ import { UserMngComponent } from './components/user-mng/user-mng.component';
 import { CustomerSprtComponent } from './components/customer-sprt/customer-sprt.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { CategoryMngComponent } from './components/product-mng/category-mng/category-mng.component';
 
 export const routes: Routes = [
   {
@@ -24,7 +25,7 @@ export const routes: Routes = [
       },
       {
         path : 'product-mng',
-        component: ProductMngComponent
+        component: CategoryMngComponent
       },
       {
         path : 'order-mng',
