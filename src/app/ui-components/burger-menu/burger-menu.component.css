@@ -5,29 +5,36 @@
 .bgmenu-dashboard,.bgmenu-product-mng,.bgmenu-order-mng,.bgmenu-user-mng,
 .bgmenu-cs,.bgmenu-settings,.bgmenu-logout{
   padding-left: 30px;
-  margin: 0px 10px;
+  margin: 0px 0px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* opacity: 0.6; */
 
 }
 
-.bgmenu-dashboard:hover,.bgmenu-product-mng:hover,.bgmenu-order-mng:hover,.bgmenu-user-mng:hover,
-.bgmenu-cs:hover,.bgmenu-settings:hover,.bgmenu-logout:hover,
-.bgmenu-dashboard.active,.bgmenu-product-mng.active,.bgmenu-order-mng.active,.bgmenu-user-mng.active,
-.bgmenu-cs.active,.bgmenu-settings.active,.bgmenu-logout.active
-{
+.active{
+
   background-color: #5e35f2;
   color: white;
   cursor: pointer;
+  img{
+    filter: invert(100%)
+
+  }
 }
 
-.bgmenu-dashboard:hover img,.bgmenu-product-mng:hover img,.bgmenu-order-mng:hover img,.bgmenu-user-mng:hover img,
-.bgmenu-cs:hover img,.bgmenu-settings:hover img,.bgmenu-logout:hover img,
-.bgmenu-dashboard.active img,.bgmenu-product-mng.active img,.bgmenu-order-mng.active img,.bgmenu-user-mng.active img,
-.bgmenu-cs.active img,.bgmenu-settings.active img,.bgmenu-logout.active img{
-  filter: invert(100%);
+
+.bgmenu-dashboard:hover,
+/* .bgmenu-product-mng:hover, */
+.bgmenu-order-mng:hover,.bgmenu-user-mng:hover,
+.bgmenu-cs:hover,.bgmenu-settings:hover,.bgmenu-logout:hover{
+  background-color: #704eec;
+  color: white;
+  cursor: pointer;
+  img{
+    filter: invert(100%)
+
+  }
 }
 .bgmenu-top-items{
   margin-top: 50px;
@@ -52,4 +59,21 @@ img{
 
 }
 
+span{display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+li{
+  :hover{
+    /* background-color: #704eec; */
+    cursor: pointer;
+  }
+    padding: 5px 10px;
+    margin:1px;
+    list-style: none;
+    a{
+      text-decoration: none;
+    }
+}
 
