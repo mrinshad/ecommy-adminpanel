@@ -1,0 +1,35 @@
+.control-panel {
+  padding: 10px;
+  display: flex;
+  justify-content: end;
+}
+.add-button,
+.delete-button {
+  margin: 10px;
+  border-radius: 5px;
+  width: 60px;
+  border: 0;
+  cursor: pointer;
+}
+
+.add-button {
+  color: white;
+  background: none;
+  background-image: url("../../../../assets/icons/add.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 32px;
+  background-size:41px ;
+}
+
+.delete-button {
+  color: white;
+  background: none;
+  background-image: url("../../../../assets/icons/bin.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:35px ;
+}
+table {
+  width: 100%;
+}

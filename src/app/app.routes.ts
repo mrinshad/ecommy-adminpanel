@@ -9,6 +9,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { CategoryMngComponent } from './components/product-mng/category-mng/category-mng.component';
 
+
 export const routes: Routes = [
   {
     path: '',
