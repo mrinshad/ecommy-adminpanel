@@ -1,79 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
   font-family: "Montserrat", sans-serif;
 }
-.bgmenu-dashboard,.bgmenu-product-mng,.bgmenu-order-mng,.bgmenu-user-mng,
-.bgmenu-cs,.bgmenu-settings,.bgmenu-logout{
+.bgmenu-dashboard,
+.bgmenu-product-mng,
+.bgmenu-order-mng,
+.bgmenu-user-mng,
+.bgmenu-cs,
+.bgmenu-settings,
+.bgmenu-logout {
   padding-left: 30px;
   margin: 0px 0px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
 }
 
-.active{
-
-  background-color: #5e35f2;
-  color: white;
+.active {
+  background-color: #dfdfdf;
   cursor: pointer;
-  img{
-    filter: invert(100%)
-
-  }
+  border-radius: 10px;
 }
-
 
 .bgmenu-dashboard:hover,
-/* .bgmenu-product-mng:hover, */
+.bgmenu-product-mng:hover,
 .bgmenu-order-mng:hover,.bgmenu-user-mng:hover,
-.bgmenu-cs:hover,.bgmenu-settings:hover,.bgmenu-logout:hover{
-  background-color: #704eec;
-  color: white;
+.bgmenu-cs:hover,.bgmenu-settings:hover,.bgmenu-logout:hover {
+  background-color: #dfdfdf;
   cursor: pointer;
-  img{
-    filter: invert(100%)
-
-  }
+  border-radius: 10px;
 }
-.bgmenu-top-items{
+.bgmenu-top-items {
   margin-top: 50px;
 }
 
-.bgmenu-dashboard.active{
-  background-color: #5e35f2;
-}
-img{
+img {
   height: 20px;
   width: 20px;
-  /* opacity: 0.5; */
   margin-right: 10px;
 }
-.burger-main{
+.burger-main {
   border-right: 0.5px solid rgb(228, 226, 226);
   width: 30vh;
   height: 85vh;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
 }
 
-span{display: flex;
+span {
+  display: flex;
   align-items: center;
   width: 100%;
+  p{
+    font-weight: 400;
+  }
 }
 
-li{
-  :hover{
-    /* background-color: #704eec; */
+li {
+  :hover {
+    background-color: #dfdfdf;
     cursor: pointer;
   }
-    padding: 5px 10px;
-    margin:1px;
-    list-style: none;
-    a{
-      text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
+  p{
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 1px;
+  list-style: none;
 }
 
+
+.hidden
+{
+  display: none;
+}

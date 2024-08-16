@@ -9,7 +9,8 @@
 
     <!-- Product management -->
 
-    <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenState.set(true)"
+    <mat-expansion-panel class="mat-elevation-z0" [ngClass]="{ 'active': ['/product-mng', '/category-mng', '/product-req'].includes(router.url) }"
+     (opened)="panelOpenState.set(true)"
       (closed)="panelOpenState.set(false)">
       <mat-expansion-panel-header class="bgmenu-product-mng align-center-items">
         <span>
@@ -19,14 +20,13 @@
       </mat-expansion-panel-header>
       <ul>
         <li>
-          <div routerLink="/product-mng"
-           >Manage Product</div>
+         <p [ngClass]="{ 'hidden': router.url !== '/product-mng' }">> &nbsp;</p> <div routerLink="/product-mng">  Manage Product</div>
         </li>
         <li>
-          <div routerLink="/category-mng">Category Management</div>
+          <p [ngClass]="{ 'hidden': router.url !== '/category-mng' }">> &nbsp;</p> <div routerLink="/category-mng">Category</div>
         </li>
         <li>
-          <div routerLink="/product-req">Product Request</div>
+          <p [ngClass]="{ 'hidden': router.url !== '/product-req' }">> &nbsp;</p> <div routerLink="/product-req">Product Request</div>
         </li>
       </ul>
     </mat-expansion-panel>
@@ -40,33 +40,49 @@
     </div>
 
     <!-- User management -->
-    <div class="bgmenu-user-mng" [ngClass]="{ 'active': router.url === '/user-mng' }" routerLink="/user-mng">
-      <span>
-        <img src="../../../assets/icons/user.png" alt="">
-        <p>User Management</p>
-      </span>
-    </div>
+
+  <mat-expansion-panel class="mat-elevation-z0" [ngClass]="{ 'active': ['/vendor-mng', '/user-mng'].includes(router.url) }"
+   (opened)="panelOpenState.set(true)"
+      (closed)="panelOpenState.set(false)">
+      <mat-expansion-panel-header class="bgmenu-product-mng align-center-items">
+        <span>
+          <img src="../../../assets/icons/product.png" alt="">
+          <p>Party Management</p>
+        </span>
+      </mat-expansion-panel-header>
+      <ul>
+        <li>
+          <p [ngClass]="{ 'hidden': router.url !== '/vendor-mng' }">> &nbsp;</p> <div routerLink="/vendor-mng">Vendor</div>
+        </li>
+        <li>
+          <p [ngClass]="{ 'hidden': router.url !== '/user-mng' }">> &nbsp;</p>  <div routerLink="/user-mng">User</div>
+        </li>
+      </ul>
+    </mat-expansion-panel>
+
   </div>
 
   <!-- Customer support -->
   <div class="bgmenu-bottom-items">
     <div class="bgmenu-cs" [ngClass]="{ 'active': router.url === '/cust-sup' }" routerLink="/cust-sup">
-      <!-- <img src="../../../assets/icons/support.png" alt=""> -->
       <span>
+        <img src="../../../assets/icons/support.png" alt="">
         <p>Customer Support</p>
       </span>
     </div>
 
     <!-- Settings -->
     <div class="bgmenu-settings" [ngClass]="{ 'active': router.url === '/settings' }" routerLink="/settings">
-      <img src="../../../assets/icons/setting.png" alt=""><span>
+      <span>
+        <img src="../../../assets/icons/setting.png" alt="">
         <p>Settings</p>
       </span>
     </div>
 
     <!-- Logout -->
     <div class="bgmenu-logout" [ngClass]="{ 'active': router.url === '/logout' }" routerLink="/logout">
-      <img src="../../../assets/icons/logout.png" alt=""><span>
+      <span>
+        <img src="../../../assets/icons/logout.png" alt="">
         <p>Logout</p>
       </span>
     </div>
