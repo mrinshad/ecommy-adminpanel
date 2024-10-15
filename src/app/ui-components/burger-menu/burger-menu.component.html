@@ -15,18 +15,21 @@
       <mat-expansion-panel-header class="bgmenu-product-mng align-center-items">
         <span>
           <img src="../../../assets/icons/product.png" alt="">
-          <p>Product Management</p>
+          <p routerLink="/product-mng">Product Management</p>
         </span>
       </mat-expansion-panel-header>
       <ul>
         <li>
-         <p [ngClass]="{ 'hidden': router.url !== '/product-mng' }">> &nbsp;</p> <div routerLink="/product-mng">  Manage Product</div>
+         <p [ngClass]="{ 'hidden': router.url !== '/product-mng' }"> &nbsp;</p>
+          <div routerLink="/product-mng">  Manage Product</div>
         </li>
         <li>
-          <p [ngClass]="{ 'hidden': router.url !== '/category-mng' }">> &nbsp;</p> <div routerLink="/category-mng">Category</div>
+          <p [ngClass]="{ 'hidden': router.url !== '/category-mng' }"> &nbsp;</p>
+          <div routerLink="/category-mng">Category</div>
         </li>
         <li>
-          <p [ngClass]="{ 'hidden': router.url !== '/product-req' }">> &nbsp;</p> <div routerLink="/product-req">Product Request</div>
+          <p [ngClass]="{ 'hidden': router.url !== '/product-req' }"> &nbsp;</p>
+          <div routerLink="/product-req">Product Request</div>
         </li>
       </ul>
     </mat-expansion-panel>
@@ -52,10 +55,10 @@
       </mat-expansion-panel-header>
       <ul>
         <li>
-          <p [ngClass]="{ 'hidden': router.url !== '/vendor-mng' }">> &nbsp;</p> <div routerLink="/vendor-mng">Vendor</div>
+          <p [ngClass]="{ 'hidden': router.url !== '/vendor-mng' }">&nbsp;</p> <div routerLink="/vendor-mng">Vendor</div>
         </li>
         <li>
-          <p [ngClass]="{ 'hidden': router.url !== '/user-mng' }">> &nbsp;</p>  <div routerLink="/user-mng">User</div>
+          <p [ngClass]="{ 'hidden': router.url !== '/user-mng' }"> &nbsp;</p>  <div routerLink="/user-mng">User</div>
         </li>
       </ul>
     </mat-expansion-panel>

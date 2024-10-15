@@ -1,0 +1,26 @@
+.product-requests-container {
+  margin: 20px;
+}
+
+.actions {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  text-align: left;
+}
+
+td.mat-cell {
+  text-align: left;
+}
