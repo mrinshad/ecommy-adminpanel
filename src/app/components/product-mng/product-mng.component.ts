@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, AfterViewInit, Component, OnInit, ViewChild, inject, Inject } from '@angular/core';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -6,6 +6,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { HttpProviderService } from '../../Service/http-provider.service';
+import { NgClass } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-product-mng',
@@ -16,10 +20,14 @@ import { HttpProviderService } from '../../Service/http-provider.service';
     MatCheckboxModule,
     MatButtonToggleModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    NgClass, 
+    MatDialogModule,
+    MatTooltip
   ],
   templateUrl: './product-mng.component.html',
   styleUrls: ['./product-mng.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductMngComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['select', 'id', 'name', 'status', 'stock', 'category', 'vendor', 'action'];
@@ -40,50 +48,48 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
   }
 
   getAllProducts() {
-    var count = 1;
+    let count = 1; // Changed from var to let for better scope management
     this.httpProvider.getAllApprovedProducts().subscribe({
       next: (data: any) => {
-        if (data != null && data.body != null) {
+        if (data && data.body) {
           const resultData = data.body;
-          if (resultData) {
-            this.dataSource.data = resultData.map((item: any) => ({
-              id: count++,
-              img: 'path/to/product/image.jpg', // You'll need to provide the actual image path
-              name: item.product_name,
-              status: this.getStatus(item.stock_quantity),
-              stock: item.stock_quantity,
-              category: item.category,
-              vendor: item.seller_info,
-              price: item.price,
-              discount: item.discount,
-              sku: item.sku,
-              brand: item.brand,
-              dimensions: item.dimensions,
-              weight: item.weight,
-              shipping_weight: item.shipping_weight,
-              return_policy: item.return_policy,
-              created_at: new Date(item.created_at),
-              updated_at: new Date(item.updated_at)
-            }));
-          }
-
+          this.dataSource.data = resultData.map((item: any) => ({
+            id: count++,
+            product_id: item.id,
+            img: 'path/to/product/image.jpg', // You'll need to provide the actual image path
+            name: item.product_name,
+            status: this.getStatus(item.stock_quantity),
+            stock: item.stock_quantity,
+            category: item.category,
+            vendor: item.seller_info,
+            desc: item.description,
+            price: item.price,
+            discount: item.discount,
+            sku: item.sku,
+            brand: item.brand,
+            dimensions: item.dimensions,
+            weight: item.weight,
+            shipping_weight: item.shipping_weight,
+            return_policy: item.return_policy,
+            created_at: new Date(item.created_at),
+            updated_at: new Date(item.updated_at),
+          }));
         }
       },
       error: (error: any) => {
         console.error('Error fetching products:', error);
+        // Optionally provide user feedback
         if (error.status === 404) {
           this.dataSource.data = [];
+        } else {
+          // Handle other errors appropriately
         }
-      }
+      },
     });
   }
 
   getStatus(stockQuantity: number): string {
-    if (stockQuantity > 0) {
-      return 'Available';
-    } else {
-      return 'Out of stock';
-    }
+    return stockQuantity > 0 ? 'Available' : 'Out of stock';
   }
 
   searchText: string = '';
@@ -92,28 +98,48 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
   }
 
   filterProducts(filter: string) {
-    switch(filter) {
+    switch (filter) {
       case 'All':
         this.dataSource.filter = '';
-        console.log('All');
         break;
       case 'Available':
         this.dataSource.filter = 'Available';
-        console.log('Available');
         break;
       case 'Out of stock':
         this.dataSource.filter = 'Out of stock';
-        console.log('Out of stock');
         break;
       case 'Archived':
         // Implement archive logic if needed
         break;
     }
   }
+  readonly dialog = inject(MatDialog);
+  openDialog(element: any) {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+      data: element // Passing the element data to the dialog
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${element.product_id}`);
+    });
+  }
+
 }
 
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'popup-product-desc.component.html',
+  styleUrls: ['./product-mng.component.css'],
+  standalone: true,
+  imports: [MatDialogModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class DialogContentExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public element: any) { } // Injecting the passed data
+}
 export interface ProductElement {
   id: number;
+  product_id: number;
   img: string;
   name: string;
   status: string;
@@ -121,6 +147,7 @@ export interface ProductElement {
   category: string;
   vendor: string;
   price: number;
+  desc: string;
   discount: number;
   sku: string;
   brand: string;

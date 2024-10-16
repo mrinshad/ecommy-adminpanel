@@ -1,0 +1,64 @@
+<mat-dialog-content class="mat-typography">
+  <div class="body-class">
+    <div class="header">
+      <h2>{{element.name}}</h2>
+      <div class="tooltip">
+        <img src="../../../assets/icons/edit-text.png" class="edit-icon tooltip" alt="" />
+        <span class="tooltiptext">edit</span>
+      </div>
+    </div>
+    <div class="top-section">
+      <img
+        class="product-image"
+        src="../../../assets/images/iphone_demo.webp"
+        alt=""
+      />
+      <div class="product-details">
+        <div class="product-labels">
+          <p class="product-label">Product id</p>
+          <p class="product-label">Category</p>
+          <p class="product-label">Price</p>
+          <p class="product-label">Stock</p>
+          <p class="product-label">Status</p>
+        </div>
+
+        <div class="product-values">
+          <p class="product-value">{{element.product_id}}</p>
+          <p class="product-value">{{element.category}}</p>
+          <p class="product-value">₹{{element.price}}</p>
+          <p class="product-value">{{element.stock}}</p>
+          <p class="product-value">{{element.status}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-section">
+      <div class="product-desc">
+        <p class="product-label">Product description</p>
+        <p class="product-value">
+          {{element.desc}}
+        </p>
+      </div>
+      <div class="product-details">
+        <div class="product-labels">
+          <p class="product-label">Discount</p>
+          <p class="product-label">SKU</p>
+          <p class="product-label">Dimensions</p>
+          <p class="product-label">Weight</p>
+          <p class="product-label">Shipping weight</p>
+          <p class="product-label">Return Policy</p>
+          <p class="product-label">Vendor</p>
+        </div>
+
+        <div class="product-values">
+          <p class="product-value">{{element.discount}}%</p>
+          <p class="product-value">{{element.sku}}</p>
+          <p class="product-value">{{element.dimensions}}</p>
+          <p class="product-value">{{element.shipping_weight}}</p>
+          <p class="product-value">{{element.weight}} kg</p>
+          <p class="product-value">{{element.return_policy}}</p>
+          <p class="product-value">{{element.vendor}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
