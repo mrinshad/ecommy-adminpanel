@@ -6,7 +6,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { HttpProviderService } from '../../Service/http-provider.service';
-import { Constants } from '../../config/constants';
 
 @Component({
   selector: 'app-product-mng',
@@ -21,10 +20,8 @@ import { Constants } from '../../config/constants';
   ],
   templateUrl: './product-mng.component.html',
   styleUrls: ['./product-mng.component.css'],
-  providers: [HttpProviderService]
 })
 export class ProductMngComponent implements AfterViewInit, OnInit {
-  title = 'Products';
   displayedColumns: string[] = ['select', 'id', 'name', 'status', 'stock', 'category', 'vendor', 'action'];
   dataSource: MatTableDataSource<ProductElement>;
 
@@ -43,13 +40,14 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
   }
 
   getAllProducts() {
-    this.httpProvider.getAllProducts().subscribe({
+    var count = 1;
+    this.httpProvider.getAllApprovedProducts().subscribe({
       next: (data: any) => {
         if (data != null && data.body != null) {
           const resultData = data.body;
           if (resultData) {
             this.dataSource.data = resultData.map((item: any) => ({
-              id: item.id,
+              id: count++,
               img: 'path/to/product/image.jpg', // You'll need to provide the actual image path
               name: item.product_name,
               status: this.getStatus(item.stock_quantity),
@@ -68,6 +66,7 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
               updated_at: new Date(item.updated_at)
             }));
           }
+
         }
       },
       error: (error: any) => {
@@ -96,12 +95,15 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
     switch(filter) {
       case 'All':
         this.dataSource.filter = '';
+        console.log('All');
         break;
       case 'Available':
         this.dataSource.filter = 'Available';
+        console.log('Available');
         break;
       case 'Out of stock':
         this.dataSource.filter = 'Out of stock';
+        console.log('Out of stock');
         break;
       case 'Archived':
         // Implement archive logic if needed

@@ -5,10 +5,10 @@ import { Constants } from '../config/constants';
 
 const apiUrl = Constants.API_ENDPOINT;
 const httpLink = {
+  getAllApprovedProducts: `${apiUrl}/products/getApprovedProducts`,
   getAllProducts: `${apiUrl}/products/getProducts`,
-  deleteEmployeeById: `${apiUrl}/api/employee/deleteEmployeeById`,
-  getEmployeeDetailById: `${apiUrl}/api/employee/getEmployeeDetailById`,
-  saveEmployee: `${apiUrl}/api/employee/saveEmployee`
+  approveProduct: `${apiUrl}/products/approveProduct`,
+  rejectProduct: `${apiUrl}/products/rejectProduct`,
 };
 
 @Injectable({
@@ -17,8 +17,20 @@ const httpLink = {
 export class HttpProviderService {
   constructor(private webApiService: WebApiService) {}
 
+  public getAllApprovedProducts(): Observable<any> {
+    return this.webApiService.get(httpLink.getAllApprovedProducts);
+  }
+
   public getAllProducts(): Observable<any> {
     return this.webApiService.get(httpLink.getAllProducts);
+  }
+
+  public approveProduct(product_id:any):Observable<any>{
+    return this.webApiService.post(httpLink.approveProduct,product_id)
+  }
+
+  public rejectProduct(product_id:any):Observable<any>{
+    return this.webApiService.post(httpLink.rejectProduct,product_id);
   }
 
   // Uncomment and implement these methods if needed
