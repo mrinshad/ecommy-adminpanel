@@ -21,7 +21,7 @@ import { MatTooltip } from '@angular/material/tooltip';
     MatButtonToggleModule,
     MatIconModule,
     FormsModule,
-    NgClass, 
+    NgClass,
     MatDialogModule,
     MatTooltip
   ],
@@ -30,7 +30,9 @@ import { MatTooltip } from '@angular/material/tooltip';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductMngComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['select', 'id', 'name', 'status', 'stock', 'category', 'vendor', 'action'];
+  displayedColumns: string[] = [
+    // 'select',
+    'id', 'name', 'status', 'stock', 'category', 'vendor', 'action'];
   dataSource: MatTableDataSource<ProductElement>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -48,7 +50,7 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
   }
 
   getAllProducts() {
-    let count = 1; // Changed from var to let for better scope management
+    let count = 1; 
     this.httpProvider.getAllApprovedProducts().subscribe({
       next: (data: any) => {
         if (data && data.body) {
@@ -56,7 +58,7 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
           this.dataSource.data = resultData.map((item: any) => ({
             id: count++,
             product_id: item.id,
-            img: 'path/to/product/image.jpg', // You'll need to provide the actual image path
+            img: 'path/to/product/image.jpg', 
             name: item.product_name,
             status: this.getStatus(item.stock_quantity),
             stock: item.stock_quantity,
@@ -78,11 +80,8 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
       },
       error: (error: any) => {
         console.error('Error fetching products:', error);
-        // Optionally provide user feedback
         if (error.status === 404) {
           this.dataSource.data = [];
-        } else {
-          // Handle other errors appropriately
         }
       },
     });
@@ -109,14 +108,13 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
         this.dataSource.filter = 'Out of stock';
         break;
       case 'Archived':
-        // Implement archive logic if needed
         break;
     }
   }
   readonly dialog = inject(MatDialog);
   openDialog(element: any) {
     const dialogRef = this.dialog.open(DialogContentExampleDialog, {
-      data: element // Passing the element data to the dialog
+      data: element 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -135,7 +133,7 @@ export class ProductMngComponent implements AfterViewInit, OnInit {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogContentExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public element: any) { } // Injecting the passed data
+  constructor(@Inject(MAT_DIALOG_DATA) public element: any) { } 
 }
 export interface ProductElement {
   id: number;

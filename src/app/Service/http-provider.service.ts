@@ -17,6 +17,7 @@ const httpLink = {
 export class HttpProviderService {
   constructor(private webApiService: WebApiService) {}
 
+  // Products
   public getAllApprovedProducts(): Observable<any> {
     return this.webApiService.get(httpLink.getAllApprovedProducts);
   }
@@ -33,16 +34,8 @@ export class HttpProviderService {
     return this.webApiService.post(httpLink.rejectProduct,product_id);
   }
 
-  // Uncomment and implement these methods if needed
+  
   // public deleteEmployeeById(employeeId: string): Observable<any> {
   //   return this.webApiService.post(`${httpLink.deleteEmployeeById}?employeeId=${employeeId}`, null);
-  // }
-
-  // public getEmployeeDetailById(employeeId: string): Observable<any> {
-  //   return this.webApiService.get(`${httpLink.getEmployeeDetailById}?employeeId=${employeeId}`);
-  // }
-
-  // public saveEmployee(model: any): Observable<any> {
-  //   return this.webApiService.post(httpLink.saveEmployee, model);
   // }
 }
